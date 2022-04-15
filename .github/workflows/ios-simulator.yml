@@ -22,11 +22,10 @@ jobs:
       - name: Test
         uses: sersoft-gmbh/xcodebuild-action@v1
         with:
-          action: test
-          result-bundle-path: test-results/all-tests
           project: Experiments.xcodeproj
           scheme: Experiments
-          destination: 'platform=iOS Simulator,OS=latest,name=iPhone 13 Pro'
+          result-bundle-path: test-results/all-tests
+          destination: 'platform=iOS Simulator,name=iPhone 12'
       - name: Remove symbolic link created by Xcode
         if: always()
         run: rm test-results/all-tests || true
