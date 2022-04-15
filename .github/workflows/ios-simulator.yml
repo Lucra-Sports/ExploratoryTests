@@ -19,8 +19,6 @@ jobs:
       - run: xcrun xctrace list devices
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Debugging with tmate
-        uses: mxschmitt/action-tmate@v3.11
       - name: Test
         uses: sersoft-gmbh/xcodebuild-action@v1
         with:
