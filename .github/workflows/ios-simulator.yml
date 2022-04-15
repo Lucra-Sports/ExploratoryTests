@@ -1,4 +1,4 @@
-name: iOS starter workflow
+name: test on iOS simulator
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
           result-bundle-path: test-results/all-tests
           project: Experiments.xcodeproj
           scheme: Experiments
-          destination: platform=iOS Simulator,name=iPhone 11 Pro
+          destination: 'platform=iOS Simulator,name=iPhone 11'
       - name: Remove symbolic link created by Xcode
         if: always()
         run: rm test-results/all-tests || true

@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4BB868EB280963C100F1850D /* workflows */ = {isa = PBXFileReference; lastKnownFileType = folder; name = workflows; path = .github/workflows; sourceTree = "<group>"; };
 		4BC8BF0128092E9E00379219 /* Experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Experiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC8BF0428092E9E00379219 /* ExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsApp.swift; sourceTree = "<group>"; };
 		4BC8BF0628092E9E00379219 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		4BC8BEF828092E9E00379219 = {
 			isa = PBXGroup;
 			children = (
+				4BB868EB280963C100F1850D /* workflows */,
 				4BC8BF0328092E9E00379219 /* Experiments */,
 				4BC8BF1428092EA000379219 /* ExperimentsTests */,
 				4BC8BF1E28092EA000379219 /* ExperimentsUITests */,
