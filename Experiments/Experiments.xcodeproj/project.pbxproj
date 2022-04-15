@@ -13,7 +13,7 @@
 		4BC8BF0C28092EA000379219 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BC8BF0B28092EA000379219 /* Preview Assets.xcassets */; };
 		4BC8BF1628092EA000379219 /* ExperimentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF1528092EA000379219 /* ExperimentsTests.swift */; };
 		4BC8BF2028092EA000379219 /* ExperimentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF1F28092EA000379219 /* ExperimentsUITests.swift */; };
-		4BC8BF2228092EA000379219 /* ExperimentsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF2128092EA000379219 /* ExperimentsUITestsLaunchTests.swift */; };
+		4BC8BF2F2809307900379219 /* DateFormatterRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF2E2809307900379219 /* DateFormatterRace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		4BC8BF1528092EA000379219 /* ExperimentsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsTests.swift; sourceTree = "<group>"; };
 		4BC8BF1B28092EA000379219 /* ExperimentsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExperimentsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC8BF1F28092EA000379219 /* ExperimentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsUITests.swift; sourceTree = "<group>"; };
-		4BC8BF2128092EA000379219 /* ExperimentsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4BC8BF2E2809307900379219 /* DateFormatterRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterRace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +96,7 @@
 			children = (
 				4BC8BF0428092E9E00379219 /* ExperimentsApp.swift */,
 				4BC8BF0628092E9E00379219 /* ContentView.swift */,
+				4BC8BF2E2809307900379219 /* DateFormatterRace.swift */,
 				4BC8BF0828092EA000379219 /* Assets.xcassets */,
 				4BC8BF0A28092EA000379219 /* Preview Content */,
 			);
@@ -122,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				4BC8BF1F28092EA000379219 /* ExperimentsUITests.swift */,
-				4BC8BF2128092EA000379219 /* ExperimentsUITestsLaunchTests.swift */,
 			);
 			path = ExperimentsUITests;
 			sourceTree = "<group>";
@@ -257,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC8BF2F2809307900379219 /* DateFormatterRace.swift in Sources */,
 				4BC8BF0728092E9E00379219 /* ContentView.swift in Sources */,
 				4BC8BF0528092E9E00379219 /* ExperimentsApp.swift in Sources */,
 			);
@@ -275,7 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BC8BF2028092EA000379219 /* ExperimentsUITests.swift in Sources */,
-				4BC8BF2228092EA000379219 /* ExperimentsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
