@@ -25,7 +25,7 @@ jobs:
           result-bundle-path: test-results/all-tests
           project: Experiments.xcodeproj
           scheme: Experiments
-          destination: platform=iOS Simulator,OS=15.2,name=iPhone 13 Pro
+          destination: 'platform=iOS Simulator,OS=15.2,name=iPhone 13 Pro'
       - name: Remove symbolic link created by Xcode
         if: always()
         run: rm test-results/all-tests || true
