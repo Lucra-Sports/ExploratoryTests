@@ -11,34 +11,40 @@ class ExperimentsUITests: XCTestCase {
     let app = XCUIApplication()
     let timeout: TimeInterval = 10
 
+    override func setUp() async throws {
+        continueAfterFailure = false
+    }
+
     func testDateFormatterRace() throws {
         app.launch()
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: timeout))
-        try verifyAppCrash {
+        verifyAppCrash {
             app.buttons["Race DateFormatter"].tap()
         }
     }
     
-    func expectToCrash() throws -> XCTestExpectation {
-        let processId = pid_t(try XCTUnwrap(app.value(forKey: "processID") as? Int32))
+    func appDidExit() -> DispatchSourceProcess {
+        let processId = pid_t(app.value(forKey: "processID") as! Int32)
         
         let source = DispatchSource.makeProcessSource(
             identifier: processId,
-            eventMask: .signal
+            eventMask: .exit
         )
         source.activate()
-        
-        let appCrashed = expectation(description: "app crashed")
-        source.setEventHandler {
-            appCrashed.fulfill()
-        }
-        return appCrashed
+        return source
     }
     
-    func verifyAppCrash(_ block: ()->Void) throws {
-        let appCrashed = try expectToCrash()
+    func verifyAppCrash(_ block: ()->Void) {
+        let processSource = appDidExit()
+        let appCrashed = expectation(description: "app crashed")
+        processSource.setEventHandler {
+            appCrashed.fulfill()
+        }
         block()
         wait(for: [appCrashed], timeout: timeout)
+        XCTAssertFalse(processSource.isCancelled)
+        XCTAssertEqual(processSource.data, .exit)
+        app.terminate()
         XCTAssertTrue(app.wait(for: .notRunning, timeout: timeout))
     }
 }

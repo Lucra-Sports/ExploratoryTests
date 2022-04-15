@@ -6,7 +6,6 @@
 //
 
 import XCTest
-@testable import Experiments
 
 class ExperimentsTests: XCTestCase {
     func testExample() throws {
