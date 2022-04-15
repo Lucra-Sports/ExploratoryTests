@@ -16,7 +16,7 @@ jobs:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: 'latest-stable'
-      - run: `xcrun xctrace list devices`
+      - run: xcrun xctrace list devices
       - name: Checkout
         uses: actions/checkout@v3
       - name: Test
