@@ -24,6 +24,7 @@ jobs:
         with:
           project: Experiments.xcodeproj
           scheme: Experiments
+          sdk: iphonesimulator
           result-bundle-path: test-results/all-tests
           destination: 'platform=iOS Simulator,name=iPhone 12'
       - name: Remove symbolic link created by Xcode
