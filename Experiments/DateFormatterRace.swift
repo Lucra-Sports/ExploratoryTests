@@ -10,12 +10,12 @@ import Foundation
 enum DateFormatterRace {
     static func run() {
         let dateFormatter = ISO8601DateFormatter()
-        (1...1000).forEach { _ in
-            Task {
+        let queue = DispatchQueue(label: "date formatter", attributes: .concurrent)
+        while true {
+            queue.async {
                 dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
                 let string = dateFormatter.string(from: Date())
-                let date = dateFormatter.date(from: string)
-                assert(dateFormatter.string(from: date!) == string)
+                _ = dateFormatter.date(from: string)
             }
         }
     }
