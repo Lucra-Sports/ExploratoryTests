@@ -18,17 +18,26 @@ jobs:
           xcode-version: 'latest-stable'
       - name: Prepare Simulator
         run: |
-          xcrun simctl boot "iPhone 12 Pro" || true
+          xcrun simctl create iphone-12-pro "iPhone 12 Pro"
+          xcrun simctl boot iphone-12-pro
           open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Test
-        uses: sersoft-gmbh/xcodebuild-action@main
+      - name: Build
+        uses: sersoft-gmbh/xcodebuild-action@master
         with:
+          action: build-for-testing
           project: Experiments.xcodeproj
           scheme: Experiments
+          destination: name=iphone-12-pro
+      - name: Test
+        uses: sersoft-gmbh/xcodebuild-action@master
+        with:
+          action: test-without-building
           result-bundle-path: test-results/all-tests
-          destination: 'platform=iOS Simulator,name=iPhone 12 Pro'
+          project: Experiments.xcodeproj
+          scheme: Experiments
+          destination: name=iphone-12-pro
       - name: Remove symbolic link created by Xcode
         if: always()
         run: rm test-results/all-tests || true
