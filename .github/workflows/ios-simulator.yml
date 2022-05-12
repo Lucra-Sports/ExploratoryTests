@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Test
-        uses: sersoft-gmbh/xcodebuild-action@main
+        uses: sersoft-gmbh/xcodebuild-action@master
         with:
           project: Experiments.xcodeproj
           scheme: Experiments
