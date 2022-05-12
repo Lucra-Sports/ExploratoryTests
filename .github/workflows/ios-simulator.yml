@@ -23,12 +23,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Test
-        uses: sersoft-gmbh/xcodebuild-action@v1
+        uses: sersoft-gmbh/xcodebuild-action@main
         with:
           project: Experiments.xcodeproj
           scheme: Experiments
           result-bundle-path: test-results/all-tests
-          destination: 'platform=iOS Simulator,name=iPhone 12'
+          destination: 'platform=iOS Simulator,name=iPhone 12 Pro'
       - name: Remove symbolic link created by Xcode
         if: always()
         run: rm test-results/all-tests || true
