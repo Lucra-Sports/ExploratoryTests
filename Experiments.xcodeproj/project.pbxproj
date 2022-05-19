@@ -12,6 +12,8 @@
 		4B3A8F4A282CDE8300C8E9BB /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F48282CDE8300C8E9BB /* SampleView.swift */; };
 		4B3A8F4F282CE3D900C8E9BB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F4E282CE3D900C8E9BB /* UIView+Extensions.swift */; };
 		4B3A8F50282CE3D900C8E9BB /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F4E282CE3D900C8E9BB /* UIView+Extensions.swift */; };
+		4B4C1512283610AF00F2FBF7 /* samplePreview.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4C1511283610AF00F2FBF7 /* samplePreview.png */; };
+		4B4C15162836127E00F2FBF7 /* sampleSwiftUIView-in-window.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B4C15152836127E00F2FBF7 /* sampleSwiftUIView-in-window.png */; };
 		4BC8BF0528092E9E00379219 /* ExperimentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF0428092E9E00379219 /* ExperimentsApp.swift */; };
 		4BC8BF0728092E9E00379219 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF0628092E9E00379219 /* ContentView.swift */; };
 		4BC8BF0928092EA000379219 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BC8BF0828092EA000379219 /* Assets.xcassets */; };
@@ -52,7 +54,8 @@
 		4B3A8F4C282CE0CE00C8E9BB /* sampleView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sampleView.png; sourceTree = "<group>"; };
 		4B3A8F4D282CE0EC00C8E9BB /* sampleSwiftUIView-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sampleSwiftUIView-blank.png"; sourceTree = "<group>"; };
 		4B3A8F4E282CE3D900C8E9BB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		4B3A8F51282CE5ED00C8E9BB /* sampleSwiftUIView-in-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sampleSwiftUIView-in-window.png"; sourceTree = "<group>"; };
+		4B4C1511283610AF00F2FBF7 /* samplePreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = samplePreview.png; sourceTree = "<group>"; };
+		4B4C15152836127E00F2FBF7 /* sampleSwiftUIView-in-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sampleSwiftUIView-in-window.png"; sourceTree = "<group>"; };
 		4BB868EB280963C100F1850D /* workflows */ = {isa = PBXFileReference; lastKnownFileType = folder; name = workflows; path = .github/workflows; sourceTree = "<group>"; };
 		4BC8BF0128092E9E00379219 /* Experiments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Experiments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC8BF0428092E9E00379219 /* ExperimentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsApp.swift; sourceTree = "<group>"; };
@@ -155,7 +158,8 @@
 		4BC8BF1428092EA000379219 /* ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
-				4B3A8F51282CE5ED00C8E9BB /* sampleSwiftUIView-in-window.png */,
+				4B4C15152836127E00F2FBF7 /* sampleSwiftUIView-in-window.png */,
+				4B4C1511283610AF00F2FBF7 /* samplePreview.png */,
 				4BC8BF1528092EA000379219 /* RenderInWindowTest.swift */,
 				4B3A8F48282CDE8300C8E9BB /* SampleView.swift */,
 			);
@@ -312,6 +316,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B4C1512283610AF00F2FBF7 /* samplePreview.png in Resources */,
+				4B4C15162836127E00F2FBF7 /* sampleSwiftUIView-in-window.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +574,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucrasports.ApplicationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Experiments.app/Experiments";
@@ -578,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lucrasports.ApplicationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Experiments.app/Experiments";

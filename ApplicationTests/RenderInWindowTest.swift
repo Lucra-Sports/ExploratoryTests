@@ -7,6 +7,8 @@
 
 import XCTest
 import SwiftUI
+@testable import Experiments
+import UniformTypeIdentifiers
 
 class RenderInWindowTest: XCTestCase {
     let folderUrl = URL(fileURLWithPath: #filePath)
@@ -19,6 +21,31 @@ class RenderInWindowTest: XCTestCase {
             object: UIApplication.shared
         )
         wait(for: [appHasWindow], timeout: 10)
+    }
+    
+    func testRenderPreview() throws {
+        let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
+        let controller = UIHostingController(rootView: AnyView(ContentView_Previews.previews))
+        window.rootViewController = controller
+        let view = try XCTUnwrap(controller.view)
+        let size = CGSize(width: 556, height: 400)
+            .applying(
+                CGAffineTransform(scaleX: 3, y: 3)
+                    .inverted()
+            )
+        
+        XCTAssertEqual(view.intrinsicContentSize, size)
+
+        let image = controller.view.renderHierarchyOnScreen()
+        
+        let png = try XCTUnwrap(image.pngData())
+        let existing = try Data(
+            contentsOf: folderUrl.appendingPathComponent("samplePreview.png")
+        )
+        XCTContext.runActivity(named: "compare images") {
+            $0.add(.init(image: image))
+            XCTAssertEqual(existing, png)
+        }
     }
 
     func testRenderInWindow() throws {
@@ -34,8 +61,9 @@ class RenderInWindowTest: XCTestCase {
         let existing = try Data(
             contentsOf: folderUrl.appendingPathComponent("sampleSwiftUIView-in-window.png")
         )
-        XCTAssertEqual(existing, png)
-        try png.write(to: URL(fileURLWithPath: "/tmp/sampleSwiftUIView-in-window.png"))
-
+        XCTContext.runActivity(named: "compare images") {
+            $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))
+            XCTAssertEqual(existing, png)
+        }
     }
 }
