@@ -11,6 +11,15 @@ import SwiftUI
 class RenderInWindowTest: XCTestCase {
     let folderUrl = URL(fileURLWithPath: #filePath)
         .deletingLastPathComponent()
+    
+    override func setUp() {
+        super.setUp()
+        let appHasWindow = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "keyWindow != nil"),
+            object: UIApplication.shared
+        )
+        wait(for: [appHasWindow], timeout: 10)
+    }
 
     func testRenderInWindow() throws {
         let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
