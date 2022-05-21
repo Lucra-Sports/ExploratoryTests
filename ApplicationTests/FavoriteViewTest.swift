@@ -32,11 +32,10 @@ class FavoriteViewTest: XCTestCase {
         let diffOperation = diff(image1, image2)
         let diffOutput = diffOperation.outputImage!
         let diff = maxColorDiff(histogram: histogram(ciImage: diffOutput))
-        XCTAssertEqual(0, diff)
 
         XCTContext.runActivity(named: "compare images") {
             $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))
-            XCTAssertEqual(existing, png)
+            XCTAssertEqual(0, diff, accuracy: 0.02)
         }
     }
 }
