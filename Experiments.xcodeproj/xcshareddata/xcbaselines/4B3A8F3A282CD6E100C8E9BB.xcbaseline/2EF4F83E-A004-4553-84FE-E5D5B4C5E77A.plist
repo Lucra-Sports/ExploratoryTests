@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>classNames</key>
+	<dict>
+		<key>DiffPerformanceTest</key>
+		<dict>
+			<key>test_CoreImage_AndLoad_Performance()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.054209</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>May 21, 2022 at 2:48:54 AM</string>
+				</dict>
+			</dict>
+			<key>test_CoreImage_Performance()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.038389</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>May 21, 2022 at 2:48:54 AM</string>
+				</dict>
+			</dict>
+		</dict>
+		<key>SnapshotPerformanceTest</key>
+		<dict>
+			<key>test_CoreImage_Performance()</key>
+			<dict>
+				<key>com.apple.XCTPerformanceMetric_WallClockTime</key>
+				<dict>
+					<key>baselineAverage</key>
+					<real>0.046482</real>
+					<key>baselineIntegrationDisplayName</key>
+					<string>May 21, 2022 at 2:48:54 AM</string>
+				</dict>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

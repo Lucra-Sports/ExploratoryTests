@@ -8,8 +8,8 @@
 import XCTest
 
 extension XCTestCase {
-    var folderUrl: URL {
-        URL(fileURLWithPath: #filePath)
+    func folderUrl(_ filePath: String = #filePath) -> URL {
+        URL(fileURLWithPath: filePath)
             .deletingLastPathComponent()
     }
     var scalePointsToDevice: CGAffineTransform {

@@ -16,17 +16,13 @@ class RenderViewTest: XCTestCase {
         return view
     }()
     
-    let folderUrl = URL(fileURLWithPath: #filePath)
-        .deletingLastPathComponent()
-        
-    
     func testRenderLayer() throws {
         let image = try XCTUnwrap(sampleView.renderLayerAsBitmap())
         XCTAssertNotNil(image)
         XCTAssertEqual(image.size, .init(width: 40, height: 20))
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
-            contentsOf: folderUrl.appendingPathComponent("sampleView.png")
+            contentsOf: folderUrl().appendingPathComponent("sampleView.png")
         )
         XCTAssertEqual(existing, png)
         try png.write(to: URL(fileURLWithPath: "/tmp/sampleView.png"))
@@ -41,7 +37,7 @@ class RenderViewTest: XCTestCase {
         XCTAssertEqual(image.size, .init(width: 30, height: 20))
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
-            contentsOf: folderUrl.appendingPathComponent("sampleSwiftUIView-blank.png")
+            contentsOf: folderUrl().appendingPathComponent("sampleSwiftUIView-blank.png")
         )
         XCTAssertEqual(existing, png)
         try png.write(to: URL(fileURLWithPath: "/tmp/sampleSwiftUIView.png"))

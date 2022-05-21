@@ -34,7 +34,7 @@ class RenderInWindowTest: XCTestCase {
         
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
-            contentsOf: folderUrl.appendingPathComponent("samplePreview.png")
+            contentsOf: folderUrl().appendingPathComponent("samplePreview.png")
         )
         XCTContext.runActivity(named: "compare images") {
             $0.add(.init(image: image))
@@ -53,7 +53,7 @@ class RenderInWindowTest: XCTestCase {
         
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
-            contentsOf: folderUrl.appendingPathComponent("sampleSwiftUIView-in-window.png")
+            contentsOf: folderUrl().appendingPathComponent("sampleSwiftUIView-in-window.png")
         )
         XCTContext.runActivity(named: "compare images") {
             $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))

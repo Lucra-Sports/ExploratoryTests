@@ -10,7 +10,6 @@ import XCTest
 import UniformTypeIdentifiers
 
 class FavoriteViewTest: XCTestCase {
-    
     func testRenderPreview() throws {
         let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
         let controller = UIHostingController(rootView: AnyView(FavoriteView_Previews.previews))
@@ -25,8 +24,16 @@ class FavoriteViewTest: XCTestCase {
         
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
-            contentsOf: folderUrl.appendingPathComponent("FavoriteViewPreview.png")
+            contentsOf: folderUrl().appendingPathComponent("FavoriteViewPreview.png")
         )
+        
+        let image1 = CIImage(image: image)!
+        let image2 = CIImage(image: UIImage(data: existing, scale: 3)!)!
+        let diffOperation = diff(image1, image2)
+        let diffOutput = diffOperation.outputImage!
+        let diff = maxColorDiff(histogram: histogram(ciImage: diffOutput))
+        XCTAssertEqual(0, diff)
+
         XCTContext.runActivity(named: "compare images") {
             $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))
             XCTAssertEqual(existing, png)
