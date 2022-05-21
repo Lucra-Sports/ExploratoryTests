@@ -10,16 +10,14 @@ import XCTest
 import UniformTypeIdentifiers
 
 class FavoriteViewTest: XCTestCase {
+    
     func testRenderPreview() throws {
         let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
         let controller = UIHostingController(rootView: AnyView(FavoriteView_Previews.previews))
         window.rootViewController = controller
         let view = try XCTUnwrap(controller.view)
         let size = CGSize(width: 158, height: 391)
-            .applying(
-                CGAffineTransform(scaleX: 3, y: 3)
-                    .inverted()
-            )
+            .applying(scaleDeviceToPoints)
         
         XCTAssertEqual(view.intrinsicContentSize, size)
 

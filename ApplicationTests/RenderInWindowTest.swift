@@ -26,10 +26,7 @@ class RenderInWindowTest: XCTestCase {
         window.rootViewController = controller
         let view = try XCTUnwrap(controller.view)
         let size = CGSize(width: 556, height: 400)
-            .applying(
-                CGAffineTransform(scaleX: 3, y: 3)
-                    .inverted()
-            )
+            .applying(scaleDeviceToPoints)
         
         XCTAssertEqual(view.intrinsicContentSize, size)
 
