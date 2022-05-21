@@ -11,9 +11,6 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 class RenderInWindowTest: XCTestCase {
-    let folderUrl = URL(fileURLWithPath: #filePath)
-        .deletingLastPathComponent()
-    
     override func setUp() {
         super.setUp()
         let appHasWindow = XCTNSPredicateExpectation(
