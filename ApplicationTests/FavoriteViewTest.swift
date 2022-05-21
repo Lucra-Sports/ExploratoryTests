@@ -10,17 +10,33 @@ import XCTest
 import UniformTypeIdentifiers
 
 class FavoriteViewTest: XCTestCase {
-    func testRenderPreview() throws {
+    func onScreenView<SwiftUIView: View>(_ swiftUIView: SwiftUIView) throws -> UIView {
         let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
-        let controller = UIHostingController(rootView: AnyView(FavoriteView_Previews.previews))
-        window.rootViewController = controller
+        let rootViewController = try XCTUnwrap(window.rootViewController)
+        let controller = UIHostingController(rootView: swiftUIView)
+        let size = controller.view.intrinsicContentSize
         let view = try XCTUnwrap(controller.view)
-        let size = CGSize(width: 158, height: 391)
+        rootViewController.addChild(controller)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.autoresizingMask = []
+        rootViewController.view.addSubview(view)
+        controller.didMove(toParent: rootViewController)
+        let safeOrigin = window.safeAreaLayoutGuide.layoutFrame.origin
+        view.frame = .init(origin: safeOrigin, size: size)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        XCTAssertEqual(size, view.intrinsicContentSize)
+        RunLoop.current.run(until: .init(timeIntervalSinceNow: 1))
+        return view
+    }
+    
+    func testRenderPreview() throws {
+        let view = try onScreenView(FavoriteView_Previews.previews)
+        let size = CGSize(width: 158, height: 148)
             .applying(scaleDeviceToPoints)
         
         XCTAssertEqual(view.intrinsicContentSize, size)
 
-        let image = controller.view.renderHierarchyOnScreen()
+        let image = view.renderHierarchyOnScreen()
         
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
