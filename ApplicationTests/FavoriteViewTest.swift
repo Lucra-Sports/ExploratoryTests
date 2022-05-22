@@ -9,9 +9,19 @@ import SwiftUI
 import XCTest
 import UniformTypeIdentifiers
 
+extension UIApplication {
+    var keyWindow: UIWindow? {
+            UIApplication.shared.connectedScenes
+                .filter { $0.activationState == .foregroundActive }
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap(\.windows)
+                .first(where: \.isKeyWindow)
+        }
+}
+
 class FavoriteViewTest: XCTestCase {
     func onScreenView<V: View, T>(_ swiftUIView: V, block: (UIView) -> T) throws -> T {
-        let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
+        let window = try XCTUnwrap(UIApplication.shared.keyWindow)
         let rootViewController = try XCTUnwrap(window.rootViewController)
         let controller = UIHostingController(rootView: swiftUIView)
         let size = controller.view.intrinsicContentSize
