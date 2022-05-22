@@ -71,7 +71,7 @@
 		4B3A8F3B282CD6E100C8E9BB /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3A8F48282CDE8300C8E9BB /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
 		4B3A8F4C282CE0CE00C8E9BB /* sampleView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sampleView.png; sourceTree = "<group>"; };
-		4B3A8F4D282CE0EC00C8E9BB /* sampleSwiftUIView-blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sampleSwiftUIView-blank.png"; sourceTree = "<group>"; };
+		4B3A8F4D282CE0EC00C8E9BB /* sampleSwiftUIView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sampleSwiftUIView.png; sourceTree = "<group>"; };
 		4B3A8F4E282CE3D900C8E9BB /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		4B4C1511283610AF00F2FBF7 /* samplePreview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = samplePreview.png; sourceTree = "<group>"; };
 		4B4C15152836127E00F2FBF7 /* sampleSwiftUIView-in-window.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sampleSwiftUIView-in-window.png"; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				4B0584382838E61F0027DAD5 /* AvatarView-1.png */,
 				4B0584392838E61F0027DAD5 /* AvatarView-2.png */,
 				4B0584332838E30D0027DAD5 /* SnapshotPerformanceTest.swift */,
-				4B3A8F4D282CE0EC00C8E9BB /* sampleSwiftUIView-blank.png */,
+				4B3A8F4D282CE0EC00C8E9BB /* sampleSwiftUIView.png */,
 				4B3A8F4C282CE0CE00C8E9BB /* sampleView.png */,
 				4B3A8F35282CD68200C8E9BB /* RenderViewTest.swift */,
 				4B3A8F4E282CE3D900C8E9BB /* UIView+Extensions.swift */,
