@@ -10,7 +10,7 @@ import XCTest
 import UniformTypeIdentifiers
 
 class FavoriteViewTest: XCTestCase {
-    func onScreenView<SwiftUIView: View>(_ swiftUIView: SwiftUIView) throws -> UIView {
+    func onScreenView<V: View, T>(_ swiftUIView: V, block: (UIView) -> T) throws -> T {
         let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
         let rootViewController = try XCTUnwrap(window.rootViewController)
         let controller = UIHostingController(rootView: swiftUIView)
@@ -18,21 +18,24 @@ class FavoriteViewTest: XCTestCase {
         let view = try XCTUnwrap(controller.view)
         rootViewController.addChild(controller)
         rootViewController.view.addSubview(view)
-        controller.didMove(toParent: rootViewController)
         let safeOrigin = window.safeAreaLayoutGuide.layoutFrame.origin
         view.frame = .init(origin: safeOrigin, size: size)
         XCTAssertEqual(size, view.intrinsicContentSize)
-        return view
+        defer {
+            view.removeFromSuperview()
+            controller.removeFromParent()
+        }
+        return block(view)
     }
-    
+
     func testRenderPreview() throws {
-        let view = try onScreenView(FavoriteView_Previews.previews)
         let size = CGSize(width: 158, height: 148)
             .applying(scaleDeviceToPoints)
         
-        XCTAssertEqual(view.intrinsicContentSize, size)
-
-        let image = view.renderHierarchyOnScreen()
+        let image = try onScreenView(FavoriteView_Previews.previews) { view -> UIImage in
+            XCTAssertEqual(view.intrinsicContentSize, size)
+            return view.renderHierarchyOnScreen()
+        }
         
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
@@ -40,7 +43,7 @@ class FavoriteViewTest: XCTestCase {
         )
         
         let image1 = CIImage(image: image)!
-        let image2 = CIImage(image: UIImage(data: existing, scale: 3)!)!
+        let image2 = CIImage(image: UIImage(data: existing)!)!
         let diffOperation = diff(image1, image2)
         let diffOutput = diffOperation.outputImage!
         let diff = maxColorDiff(histogram: histogram(ciImage: diffOutput))
