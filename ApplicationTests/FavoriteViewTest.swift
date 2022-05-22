@@ -9,6 +9,21 @@ import SwiftUI
 import XCTest
 import UniformTypeIdentifiers
 
+func compare(_ left: UIImage, _ right: UIImage) -> ImageComparisonResult {
+    let image1 = CIImage(image: left)!
+    let image2 = CIImage(image: right)!
+    let diffOperation = diff(image1, image2)
+    return ImageComparisonResult(difference: diffOperation.outputImage!)
+}
+
+struct ImageComparisonResult {
+    let difference: CIImage
+    
+    func maxColorDifference() -> Float {
+        maxColorDiff(histogram: histogram(ciImage: difference))
+    }
+}
+
 class FavoriteViewTest: XCTestCase {
     func testRenderPreview() throws {
         let size = CGSize(width: 158, height: 148)
@@ -24,15 +39,10 @@ class FavoriteViewTest: XCTestCase {
             contentsOf: folderUrl().appendingPathComponent("FavoriteViewPreview.png")
         )
         
-        let image1 = CIImage(image: image)!
-        let image2 = CIImage(image: UIImage(data: existing)!)!
-        let diffOperation = diff(image1, image2)
-        let diffOutput = diffOperation.outputImage!
-        let diff = maxColorDiff(histogram: histogram(ciImage: diffOutput))
-
         XCTContext.runActivity(named: "compare images") {
             $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))
-            XCTAssertEqual(0, diff, accuracy: 0.02)
+            let diff = compare(image, UIImage(data: existing)!)
+            XCTAssertEqual(0, diff.maxColorDifference(), accuracy: 0.02)
         }
     }
 }
