@@ -43,13 +43,10 @@ class RenderInWindowTest: XCTestCase {
     }
 
     func testRenderInWindow() throws {
-        let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
-        let controller = UIHostingController(rootView: SampleView())
-        window.rootViewController = controller
-        let view = try XCTUnwrap(controller.view)
-        XCTAssertEqual(view.intrinsicContentSize, .init(width: 30, height: 101))
-        view.bounds = .init(origin: .zero, size: .init(width: 30, height: 20))
-        let image = controller.view.renderHierarchyOnScreen()
+        let image = try onScreenView(SampleView()) { view -> UIImage in
+            XCTAssertEqual(view.intrinsicContentSize, .init(width: 30, height: 20))
+            return view.renderHierarchyOnScreen()
+        }
         
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(

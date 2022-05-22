@@ -9,35 +9,7 @@ import SwiftUI
 import XCTest
 import UniformTypeIdentifiers
 
-extension UIApplication {
-    var keyWindow: UIWindow? {
-            UIApplication.shared.connectedScenes
-                .filter { $0.activationState == .foregroundActive }
-                .compactMap { $0 as? UIWindowScene }
-                .flatMap(\.windows)
-                .first(where: \.isKeyWindow)
-        }
-}
-
 class FavoriteViewTest: XCTestCase {
-    func onScreenView<V: View, T>(_ swiftUIView: V, block: (UIView) -> T) throws -> T {
-        let window = try XCTUnwrap(UIApplication.shared.keyWindow)
-        let rootViewController = try XCTUnwrap(window.rootViewController)
-        let controller = UIHostingController(rootView: swiftUIView)
-        let size = controller.view.intrinsicContentSize
-        let view = try XCTUnwrap(controller.view)
-        rootViewController.addChild(controller)
-        rootViewController.view.addSubview(view)
-        let safeOrigin = window.safeAreaLayoutGuide.layoutFrame.origin
-        view.frame = .init(origin: safeOrigin, size: size)
-        XCTAssertEqual(size, view.intrinsicContentSize)
-        defer {
-            view.removeFromSuperview()
-            controller.removeFromParent()
-        }
-        return block(view)
-    }
-
     func testRenderPreview() throws {
         let size = CGSize(width: 158, height: 148)
             .applying(scaleDeviceToPoints)

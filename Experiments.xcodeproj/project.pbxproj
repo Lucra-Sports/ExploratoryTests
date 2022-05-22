@@ -14,6 +14,8 @@
 		4B05843B2838E8740027DAD5 /* maxColorDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B05843A2838E8740027DAD5 /* maxColorDiff.swift */; };
 		4B05843C2838E9A10027DAD5 /* SnapshotPerformanceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B0584332838E30D0027DAD5 /* SnapshotPerformanceTest.swift */; };
 		4B05843D2838F1B60027DAD5 /* maxColorDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B05843A2838E8740027DAD5 /* maxColorDiff.swift */; };
+		4B05843F2839C8C00027DAD5 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B05843E2839C8C00027DAD5 /* UIApplication+Extensions.swift */; };
+		4B0584402839C8EF0027DAD5 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B05843E2839C8C00027DAD5 /* UIApplication+Extensions.swift */; };
 		4B3A8F44282CD91800C8E9BB /* RenderViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F35282CD68200C8E9BB /* RenderViewTest.swift */; };
 		4B3A8F49282CDE8300C8E9BB /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F48282CDE8300C8E9BB /* SampleView.swift */; };
 		4B3A8F4A282CDE8300C8E9BB /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F48282CDE8300C8E9BB /* SampleView.swift */; };
@@ -64,6 +66,7 @@
 		4B0584382838E61F0027DAD5 /* AvatarView-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AvatarView-1.png"; sourceTree = "<group>"; };
 		4B0584392838E61F0027DAD5 /* AvatarView-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AvatarView-2.png"; sourceTree = "<group>"; };
 		4B05843A2838E8740027DAD5 /* maxColorDiff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = maxColorDiff.swift; sourceTree = "<group>"; };
+		4B05843E2839C8C00027DAD5 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		4B3A8F35282CD68200C8E9BB /* RenderViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewTest.swift; sourceTree = "<group>"; };
 		4B3A8F3B282CD6E100C8E9BB /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3A8F48282CDE8300C8E9BB /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 				4BC8BF1528092EA000379219 /* RenderInWindowTest.swift */,
 				4B3A8F48282CDE8300C8E9BB /* SampleView.swift */,
 				4B05842B2838DBA10027DAD5 /* FavoriteViewTest.swift */,
+				4B05843E2839C8C00027DAD5 /* UIApplication+Extensions.swift */,
 				4B05842F2838DE740027DAD5 /* XCTestCase+Extensions.swift */,
 			);
 			path = ApplicationTests;
@@ -367,6 +371,7 @@
 				4B0584372838E59C0027DAD5 /* XCTestCase+Extensions.swift in Sources */,
 				4B05843B2838E8740027DAD5 /* maxColorDiff.swift in Sources */,
 				4B0584362838E30D0027DAD5 /* DiffPerformanceTest.swift in Sources */,
+				4B0584402839C8EF0027DAD5 /* UIApplication+Extensions.swift in Sources */,
 				4B3A8F44282CD91800C8E9BB /* RenderViewTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B05843F2839C8C00027DAD5 /* UIApplication+Extensions.swift in Sources */,
 				4B05842C2838DBA10027DAD5 /* FavoriteViewTest.swift in Sources */,
 				4B3A8F4F282CE3D900C8E9BB /* UIView+Extensions.swift in Sources */,
 				4B0584302838DE740027DAD5 /* XCTestCase+Extensions.swift in Sources */,
