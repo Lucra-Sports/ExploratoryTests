@@ -17,15 +17,11 @@ class FavoriteViewTest: XCTestCase {
         let size = controller.view.intrinsicContentSize
         let view = try XCTUnwrap(controller.view)
         rootViewController.addChild(controller)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.autoresizingMask = []
         rootViewController.view.addSubview(view)
         controller.didMove(toParent: rootViewController)
         let safeOrigin = window.safeAreaLayoutGuide.layoutFrame.origin
         view.frame = .init(origin: safeOrigin, size: size)
-        view.translatesAutoresizingMaskIntoConstraints = false
         XCTAssertEqual(size, view.intrinsicContentSize)
-        RunLoop.current.run(until: .init(timeIntervalSinceNow: 1))
         return view
     }
     
