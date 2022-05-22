@@ -24,7 +24,7 @@ class SnapshotPerformanceTest: XCTestCase {
 
 
     func getBitmap() -> UIImage {
-        return sampleView.renderLayerAsBitmap()!
+        return sampleView.renderLayerAsBitmap()
     }
 
     func test_CoreImage_Performance() throws {
