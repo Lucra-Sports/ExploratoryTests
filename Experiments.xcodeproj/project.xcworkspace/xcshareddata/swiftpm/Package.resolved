@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftui-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/paulz/SwiftUI-snapshot-testing.git",
+      "state" : {
+        "revision" : "3fed7b03cd3bfd496cfb6c59bce108ed90eee5c5",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}

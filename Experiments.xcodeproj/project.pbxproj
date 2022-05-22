@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B1DC572283B03E600760623 /* SwiftUI_SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 4B1DC571283B03E600760623 /* SwiftUI_SnapshotTesting */; };
+		4B1DC574283B046800760623 /* SnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1DC573283B046800760623 /* SnapshotTests.swift */; };
 		4B3A8F44282CD91800C8E9BB /* RenderViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F35282CD68200C8E9BB /* RenderViewTest.swift */; };
 		4B3A8F49282CDE8300C8E9BB /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F48282CDE8300C8E9BB /* SampleView.swift */; };
 		4B3A8F4A282CDE8300C8E9BB /* SampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3A8F48282CDE8300C8E9BB /* SampleView.swift */; };
@@ -48,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B1DC573283B046800760623 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
 		4B3A8F35282CD68200C8E9BB /* RenderViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewTest.swift; sourceTree = "<group>"; };
 		4B3A8F3B282CD6E100C8E9BB /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3A8F48282CDE8300C8E9BB /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B1DC572283B03E600760623 /* SwiftUI_SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +165,7 @@
 				4B4C15152836127E00F2FBF7 /* sampleSwiftUIView-in-window.png */,
 				4B4C1511283610AF00F2FBF7 /* samplePreview.png */,
 				4BC8BF1528092EA000379219 /* RenderInWindowTest.swift */,
+				4B1DC573283B046800760623 /* SnapshotTests.swift */,
 				4B3A8F48282CDE8300C8E9BB /* SampleView.swift */,
 			);
 			path = ApplicationTests;
@@ -226,6 +231,9 @@
 				4BC8BF1328092EA000379219 /* PBXTargetDependency */,
 			);
 			name = ApplicationTests;
+			packageProductDependencies = (
+				4B1DC571283B03E600760623 /* SwiftUI_SnapshotTesting */,
+			);
 			productName = ExperimentsTests;
 			productReference = 4BC8BF1128092EA000379219 /* ApplicationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -283,6 +291,9 @@
 				Base,
 			);
 			mainGroup = 4BC8BEF828092E9E00379219;
+			packageReferences = (
+				4B1DC570283B03E600760623 /* XCRemoteSwiftPackageReference "SwiftUI-snapshot-testing" */,
+			);
 			productRefGroup = 4BC8BF0228092E9E00379219 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -356,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B3A8F4F282CE3D900C8E9BB /* UIView+Extensions.swift in Sources */,
+				4B1DC574283B046800760623 /* SnapshotTests.swift in Sources */,
 				4B3A8F49282CDE8300C8E9BB /* SampleView.swift in Sources */,
 				4BC8BF1628092EA000379219 /* RenderInWindowTest.swift in Sources */,
 			);
@@ -661,6 +673,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4B1DC570283B03E600760623 /* XCRemoteSwiftPackageReference "SwiftUI-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/paulz/SwiftUI-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4B1DC571283B03E600760623 /* SwiftUI_SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4B1DC570283B03E600760623 /* XCRemoteSwiftPackageReference "SwiftUI-snapshot-testing" */;
+			productName = SwiftUI_SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4BC8BEF928092E9E00379219 /* Project object */;
 }
