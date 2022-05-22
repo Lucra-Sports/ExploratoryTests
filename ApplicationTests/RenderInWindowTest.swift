@@ -21,24 +21,20 @@ class RenderInWindowTest: XCTestCase {
     }
     
     func testRenderPreview() throws {
-        let window = try XCTUnwrap(UIApplication.shared.value(forKey: "keyWindow") as? UIWindow)
-        let controller = UIHostingController(rootView: AnyView(ContentView_Previews.previews))
-        window.rootViewController = controller
-        let view = try XCTUnwrap(controller.view)
-        let size = CGSize(width: 556, height: 400)
+        let size = CGSize(width: 556, height: 157)
             .applying(scaleDeviceToPoints)
-        
-        XCTAssertEqual(view.intrinsicContentSize, size)
-
-        let image = controller.view.renderHierarchyOnScreen()
-        
+        let image = try onScreenView(ContentView_Previews.previews) { view -> UIImage in
+            XCTAssertEqual(view.intrinsicContentSize, size)
+            return view.renderHierarchyOnScreen()
+        }
         let png = try XCTUnwrap(image.pngData())
         let existing = try Data(
             contentsOf: folderUrl().appendingPathComponent("samplePreview.png")
         )
         XCTContext.runActivity(named: "compare images") {
-            $0.add(.init(image: image))
-            XCTAssertEqual(existing, png)
+            $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))
+            let diff = compare(image, UIImage(data: existing)!)
+            XCTAssertEqual(0, diff.maxColorDifference(), accuracy: 0.02)
         }
     }
 
@@ -54,7 +50,8 @@ class RenderInWindowTest: XCTestCase {
         )
         XCTContext.runActivity(named: "compare images") {
             $0.add(.init(data: png, uniformTypeIdentifier: UTType.png.identifier))
-            XCTAssertEqual(existing, png)
+            let diff = compare(image, UIImage(data: existing)!)
+            XCTAssertEqual(0, diff.maxColorDifference(), accuracy: 0.02)
         }
     }
 }
