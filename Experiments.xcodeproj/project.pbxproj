@@ -51,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		4B1DC573283B046800760623 /* SnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTests.swift; sourceTree = "<group>"; };
+		4B1DC575283B0BE200760623 /* Snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Snapshots; sourceTree = "<group>"; };
 		4B3A8F35282CD68200C8E9BB /* RenderViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewTest.swift; sourceTree = "<group>"; };
 		4B3A8F3B282CD6E100C8E9BB /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B3A8F48282CDE8300C8E9BB /* SampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleView.swift; sourceTree = "<group>"; };
@@ -164,6 +165,7 @@
 			children = (
 				4B4C15152836127E00F2FBF7 /* sampleSwiftUIView-in-window.png */,
 				4B4C1511283610AF00F2FBF7 /* samplePreview.png */,
+				4B1DC575283B0BE200760623 /* Snapshots */,
 				4BC8BF1528092EA000379219 /* RenderInWindowTest.swift */,
 				4B1DC573283B046800760623 /* SnapshotTests.swift */,
 				4B3A8F48282CDE8300C8E9BB /* SampleView.swift */,
@@ -679,8 +681,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/paulz/SwiftUI-snapshot-testing.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				branch = main;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
