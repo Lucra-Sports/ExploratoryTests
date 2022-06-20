@@ -31,6 +31,14 @@ class ExperimentsUITests: XCTestCase {
         }
     }
     
+    func testAnyCancellableSetRace() throws {
+        app.launch()
+        XCTAssertTrue(app.wait(for: .runningForeground, timeout: timeout))
+        verifyAppCrash {
+            app.buttons["Race AnyCancellable Set"].tap()
+        }
+    }
+    
     func appDidExit() -> DispatchSourceProcess {
         let processId = pid_t(app.value(forKey: "processID") as! Int32)
         

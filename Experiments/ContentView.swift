@@ -14,6 +14,8 @@ struct ContentView: View {
                    action: DateFormatterRace.run)
             Button("Race Task Cancellation",
                    action: TaskCancellationRace.run)
+            Button("Race AnyCancellable Set",
+                   action: AnyCancellableSet.run)
         }
         .padding()
     }

@@ -18,6 +18,7 @@
 		4BC8BF0C28092EA000379219 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BC8BF0B28092EA000379219 /* Preview Assets.xcassets */; };
 		4BC8BF2028092EA000379219 /* ExperimentsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF1F28092EA000379219 /* ExperimentsUITests.swift */; };
 		4BC8BF2F2809307900379219 /* DateFormatterRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC8BF2E2809307900379219 /* DateFormatterRace.swift */; };
+		4BEFB0F628613D9D000B714C /* AnyCancellableSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BEFB0F528613D9D000B714C /* AnyCancellableSet.swift */; };
 		C400FB7B2861238A008F39AD /* TaskCancellationRace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400FB7A2861238A008F39AD /* TaskCancellationRace.swift */; };
 		C400FB7C286123D0008F39AD /* Task+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C400FB7628611E4D008F39AD /* Task+Utilities.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		4BC8BF1B28092EA000379219 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BC8BF1F28092EA000379219 /* ExperimentsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentsUITests.swift; sourceTree = "<group>"; };
 		4BC8BF2E2809307900379219 /* DateFormatterRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterRace.swift; sourceTree = "<group>"; };
+		4BEFB0F528613D9D000B714C /* AnyCancellableSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCancellableSet.swift; sourceTree = "<group>"; };
 		C400FB7628611E4D008F39AD /* Task+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+Utilities.swift"; sourceTree = "<group>"; };
 		C400FB7A2861238A008F39AD /* TaskCancellationRace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCancellationRace.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +145,7 @@
 				4BC8BF0828092EA000379219 /* Assets.xcassets */,
 				4BC8BF0A28092EA000379219 /* Preview Content */,
 				C400FB7A2861238A008F39AD /* TaskCancellationRace.swift */,
+				4BEFB0F528613D9D000B714C /* AnyCancellableSet.swift */,
 				C400FB7628611E4D008F39AD /* Task+Utilities.swift */,
 			);
 			path = Experiments;
@@ -340,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BEFB0F628613D9D000B714C /* AnyCancellableSet.swift in Sources */,
 				C400FB7B2861238A008F39AD /* TaskCancellationRace.swift in Sources */,
 				4BC8BF2F2809307900379219 /* DateFormatterRace.swift in Sources */,
 				4BC8BF0728092E9E00379219 /* ContentView.swift in Sources */,
