@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Button("Race DateFormatter",
-               action: DateFormatterRace.run)
+        Group {
+            Button("Race DateFormatter",
+                   action: DateFormatterRace.run)
+            Button("Race Task Cancellation",
+                   action: TaskCancellationRace.run)
+        }
         .padding()
     }
 }
