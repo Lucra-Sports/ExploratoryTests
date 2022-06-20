@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Group {
+        VStack(alignment: .center, spacing: 20) {
             Button("Race DateFormatter",
                    action: DateFormatterRace.run)
             Button("Race Task Cancellation",
