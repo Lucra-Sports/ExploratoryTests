@@ -14,31 +14,27 @@ class ExperimentsUITests: XCTestCase {
     override func setUp() async throws {
         continueAfterFailure = false
     }
-
-    func testDateFormatterRace() throws {
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: timeout))
-        verifyAppCrash {
-            app.buttons["Race DateFormatter"].tap()
-        }
+    
+    func test1DateFormatterRace() throws {
+        reproduceCrash("Race DateFormatter")
     }
 
-    func testTaskRace() throws {
+    func test2TaskRace() throws {
+        reproduceCrash("Race Task Cancellation")
+    }
+    
+    func test3AnyCancellableSetRace() throws {
+        reproduceCrash("Race AnyCancellable Set")
+    }
+    
+    func reproduceCrash(_ button: String) {
         app.launch()
         XCTAssertTrue(app.wait(for: .runningForeground, timeout: timeout))
         verifyAppCrash {
-            app.buttons["Race Task Cancellation"].tap()
+            app.buttons[button].tap()
         }
     }
-    
-    func testAnyCancellableSetRace() throws {
-        app.launch()
-        XCTAssertTrue(app.wait(for: .runningForeground, timeout: timeout))
-        verifyAppCrash {
-            app.buttons["Race AnyCancellable Set"].tap()
-        }
-    }
-    
+
     func appDidExit() -> DispatchSourceProcess {
         let processId = pid_t(app.value(forKey: "processID") as! Int32)
         
