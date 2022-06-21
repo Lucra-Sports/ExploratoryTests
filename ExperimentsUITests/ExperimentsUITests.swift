@@ -8,11 +8,15 @@
 import XCTest
 
 class ExperimentsUITests: XCTestCase {
-    let app = XCUIApplication()
+    var app: XCUIApplication!
     let timeout: TimeInterval = 60
 
     override func setUp() async throws {
         continueAfterFailure = false
+        app = XCUIApplication()
+    }
+    override func tearDown() {
+        app = nil
     }
     
     func test1DateFormatterRace() throws {
